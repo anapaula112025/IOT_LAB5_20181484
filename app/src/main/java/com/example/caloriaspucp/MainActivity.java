@@ -1,17 +1,26 @@
 package com.example.caloriaspucp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +47,17 @@ public class MainActivity extends AppCompatActivity {
         objectiveSpinner = findViewById(R.id.objectiveSpinner);
         calculateBtn = findViewById(R.id.calculateBtn);
 
+        // Cargar el perfil guardado, si existe
+        Perfil perfil = leerPerfilObjeto();
+        if (perfil != null) {
+            pesoInput.setText(perfil.getPeso());
+            alturaInput.setText(perfil.getAltura());
+            edadInput.setText(perfil.getEdad());
+            setSpinnerValue(generoSpinner, perfil.getGenero());
+            setSpinnerValue(nivelSpinner, perfil.getNivelActividad());
+            setSpinnerValue(objectiveSpinner, perfil.getObjetivo());
+        }
+
         // Al hacer clic en el botón de empezar
         calculateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 String genero = generoSpinner.getSelectedItem().toString();
                 String nivelActividad = objectiveSpinner.getSelectedItem().toString();
                 String objetivo = objectiveSpinner.getSelectedItem().toString();
+
+                Perfil perfil = new Perfil(pesoInput.getText().toString(), alturaInput.getText().toString(), edadInput.getText().toString(), genero, nivelActividad, objetivo);
+                guardarPerfil(perfil);
 
                 double tmb = calcularTMB(peso, altura, edad, genero);
                 double gastoCaloricoDiario = calcularGastoCaloricoDiario(tmb, nivelActividad);
@@ -105,4 +128,42 @@ public class MainActivity extends AppCompatActivity {
             return gastoCaloricoDiario;
         }
     }
+
+    public void guardarPerfil(Perfil perfil) {
+        String filename = "perfilObjeto";
+
+        try (FileOutputStream fileOutputStream = this.openFileOutput(filename, Context.MODE_PRIVATE);
+             ObjectOutputStream  objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+            objectOutputStream.writeObject(perfil);
+            Toast.makeText(this, "Perfil guardado correctamente", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error al guardar el perfil", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public Perfil leerPerfilObjeto() {
+        String filename = "perfilObjeto";
+
+        try (FileInputStream fileInputStream = openFileInput(filename);
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+            return (Perfil) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "No se encontraron datos de perfil guardados", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+    }
+
+    //Método sugerido por chatgpt
+    public void setSpinnerValue(Spinner spinner, String value) {
+        ArrayAdapter<String> adapter = (ArrayAdapter<String>) spinner.getAdapter();
+        for (int i = 0; i < adapter.getCount(); i++) {
+            if (adapter.getItem(i).equals(value)) {
+                spinner.setSelection(i);
+                break;
+            }
+        }
+    }
+
 }
