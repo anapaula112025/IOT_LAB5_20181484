@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 double altura = Double.parseDouble(alturaInput.getText().toString());
                 int edad = Integer.parseInt(edadInput.getText().toString());
                 String genero = generoSpinner.getSelectedItem().toString();
-                String nivelActividad = objectiveSpinner.getSelectedItem().toString();
+                String nivelActividad = nivelSpinner.getSelectedItem().toString();
                 String objetivo = objectiveSpinner.getSelectedItem().toString();
 
                 Perfil perfil = new Perfil(pesoInput.getText().toString(), alturaInput.getText().toString(), edadInput.getText().toString(), genero, nivelActividad, objetivo);
