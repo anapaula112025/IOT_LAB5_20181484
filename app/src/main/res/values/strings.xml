@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">CaloriasPUCP</string>
+    <string-array name="activity_levels">
+        <item>Poco o ningún ejercicio</item>
+        <item>Ejercicio ligero</item>
+        <item>Ejercicio moderado</item>
+        <item>Ejercicio fuerte</item>
+        <item>Ejercicio muy fuerte</item>
+    </string-array>
+
+    <string-array name="objectives">
+        <item>Subir Peso</item>
+        <item>Bajar Peso</item>
+        <item>Mantener Peso</item>
+    </string-array>
+
+    <string-array name="genderGroups">
+        <item>Femenino</item>
+        <item>Masculino</item>
+    </string-array>
+
+    <string name="selecciona_alimento">Selecciona un alimento</string>
+</resources>

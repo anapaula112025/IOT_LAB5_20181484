@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#95FFCDD2"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Bienvenid@!"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Ingresa los siguientes datos"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <LinearLayout
+        android:layout_width="337dp"
+        android:layout_height="619dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:text="Peso (Kg)"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/weightInput"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#A3FFFFFF"
+            android:hint="Escribir Peso (kg)"
+            android:padding="10dp"
+            android:textColorHint="#BC000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:text="Altura (cm)"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/heightInput"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#A3FFFFFF"
+            android:hint="Escribir altura (cm)"
+            android:padding="10dp"
+            android:textColorHint="#BC000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:text="Edad"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ageInput"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#A3FFFFFF"
+            android:hint="Escribir edad"
+            android:padding="10dp"
+            android:textColorHint="#BC000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:text="Género"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/genderGroup"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#A3FFFFFF"
+            android:entries="@array/genderGroups"
+            android:padding="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:text="Nivel de actividad física"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/activityLevel"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#A3FFFFFF"
+            android:entries="@array/activity_levels"
+            android:padding="10dp"
+            android:textColorHint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:text="Objetivo"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/objectiveSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#A3FFFFFF"
+            android:entries="@array/objectives"
+            android:padding="10dp"
+            android:textColorHint="@color/black" />
+
+
+        <!-- Botón-->
+
+        <Button
+            android:id="@+id/calculateBtn"
+            android:layout_width="154dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Empezar"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

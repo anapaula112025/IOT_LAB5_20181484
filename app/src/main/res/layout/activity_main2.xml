@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvCaloriasRecomendadas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Calorías Recomendadas: 2000"
+            android:textColor="#35B646"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvTotalCalorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Total de calorías consumidas: 0"
+            android:textColor="#6B3939"
+            android:textSize="18sp" />
+
+        <!-- RecyclerView para mostrar la lista de comidas -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewComidasAgregadas"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Agregar comida"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/spinnerCatalogoAlimentos"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:prompt="@string/selecciona_alimento" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/nombreComidaInput"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:hint="Comida" />
+
+            <EditText
+                android:id="@+id/caloriasInput"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Calorías"
+                android:inputType="numberDecimal" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnAddComida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Añadir comida" />
+
+        <TextView
+            android:id="@+id/tvCaloriasRestantes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="Calorías que falta consumir: "
+            android:textColor="#D91C1C"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Agregar actividad física"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/nombreActividadInput"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:hint="Actividad" />
+
+            <EditText
+                android:id="@+id/caloriasActividadInput"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Calorías"
+                android:inputType="numberDecimal" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnAddActividad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="#1A00FE"
+            android:text="Añadir actividad física" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewActividadesAgregadas"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Configurar notificación (rango en minutos)"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:padding="16dp">
+            <EditText
+                android:id="@+id/intervaloMinutosInput"
+                android:hint="1"
+                android:inputType="number"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnStartMotivacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="#7500FE"
+                android:layout_marginStart="4dp"
+                android:text="Iniciar notificación de motivación" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
